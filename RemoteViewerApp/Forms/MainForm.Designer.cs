@@ -29,37 +29,37 @@ namespace RemoteViewerApp.Forms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            splitMain = new System.Windows.Forms.SplitContainer();
-            pnlSidebar = new System.Windows.Forms.Panel();
-            tabMain = new System.Windows.Forms.TabControl();
-            tabConn = new System.Windows.Forms.TabPage();
-            pnlConn = new System.Windows.Forms.Panel();
-            btnRequestControl = new System.Windows.Forms.Button();
-            cmbHosts = new System.Windows.Forms.ComboBox();
-            btnRefreshHosts = new System.Windows.Forms.Button();
-            lblHostsHeader = new System.Windows.Forms.Label();
-            divider2 = new System.Windows.Forms.Panel();
-            btnRegister = new System.Windows.Forms.Button();
-            txtUserId = new System.Windows.Forms.TextBox();
-            lblUserId = new System.Windows.Forms.Label();
-            txtViewerName = new System.Windows.Forms.TextBox();
-            lblViewerName = new System.Windows.Forms.Label();
-            txtViewerId = new System.Windows.Forms.TextBox();
-            lblViewerId = new System.Windows.Forms.Label();
-            divider1 = new System.Windows.Forms.Panel();
-            btnConnect = new System.Windows.Forms.Button();
-            txtServerUrl = new System.Windows.Forms.TextBox();
-            lblServerUrl = new System.Windows.Forms.Label();
-            tabLog = new System.Windows.Forms.TabPage();
-            rtbLog = new System.Windows.Forms.RichTextBox();
-            btnClearLog = new System.Windows.Forms.Button();
-            pnlScreen = new System.Windows.Forms.Panel();
-            pnlScreenTop = new System.Windows.Forms.Panel();
-            lblStatus = new System.Windows.Forms.Label();
-            lblFps = new System.Windows.Forms.Label();
-            lblResolution = new System.Windows.Forms.Label();
-            btnEndControl = new System.Windows.Forms.Button();
-            lblHint = new System.Windows.Forms.Label();
+            splitMain = new SplitContainer();
+            pnlSidebar = new Panel();
+            tabMain = new TabControl();
+            tabConn = new TabPage();
+            pnlConn = new Panel();
+            btnRequestControl = new Button();
+            cmbHosts = new ComboBox();
+            btnRefreshHosts = new Button();
+            lblHostsHeader = new Label();
+            divider2 = new Panel();
+            btnRegister = new Button();
+            txtUserId = new TextBox();
+            lblUserId = new Label();
+            txtViewerName = new TextBox();
+            lblViewerName = new Label();
+            txtViewerId = new TextBox();
+            lblViewerId = new Label();
+            divider1 = new Panel();
+            btnConnect = new Button();
+            txtServerUrl = new TextBox();
+            lblServerUrl = new Label();
+            tabLog = new TabPage();
+            rtbLog = new RichTextBox();
+            btnClearLog = new Button();
+            pnlScreen = new Panel();
+            pnlScreenTop = new Panel();
+            lblStatus = new Label();
+            lblFps = new Label();
+            lblResolution = new Label();
+            btnEndControl = new Button();
+            lblHint = new Label();
             screenControl = new RemoteViewerApp.Controls.RemoteScreenControl();
             fpsTimer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)splitMain).BeginInit();
@@ -73,42 +73,63 @@ namespace RemoteViewerApp.Forms
             tabLog.SuspendLayout();
             pnlScreen.SuspendLayout();
             pnlScreenTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)screenControl).BeginInit();
             SuspendLayout();
             // 
             // splitMain
             // 
-            splitMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            splitMain.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            splitMain.Dock = DockStyle.Fill;
+            splitMain.FixedPanel = FixedPanel.Panel1;
+            splitMain.Location = new Point(0, 0);
+            splitMain.Margin = new Padding(3, 4, 3, 4);
             splitMain.Name = "splitMain";
+            // 
+            // splitMain.Panel1
+            // 
             splitMain.Panel1.Controls.Add(pnlSidebar);
             splitMain.Panel1MinSize = 260;
+            // 
+            // splitMain.Panel2
+            // 
             splitMain.Panel2.Controls.Add(pnlScreen);
             splitMain.Panel2MinSize = 400;
-            splitMain.Size = new System.Drawing.Size(1200, 750);
-            splitMain.SplitterDistance = 300;
+            splitMain.Size = new Size(1371, 1000);
+            splitMain.SplitterDistance = 343;
+            splitMain.SplitterWidth = 5;
             splitMain.TabIndex = 0;
             // 
             // pnlSidebar
             // 
             pnlSidebar.Controls.Add(tabMain);
-            pnlSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlSidebar.Dock = DockStyle.Fill;
+            pnlSidebar.Location = new Point(0, 0);
+            pnlSidebar.Margin = new Padding(3, 4, 3, 4);
             pnlSidebar.Name = "pnlSidebar";
-            pnlSidebar.Padding = new System.Windows.Forms.Padding(8);
+            pnlSidebar.Padding = new Padding(9, 11, 9, 11);
+            pnlSidebar.Size = new Size(343, 1000);
+            pnlSidebar.TabIndex = 0;
             // 
             // tabMain
             // 
             tabMain.Controls.Add(tabConn);
             tabMain.Controls.Add(tabLog);
-            tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            tabMain.Dock = DockStyle.Fill;
+            tabMain.Location = new Point(9, 11);
+            tabMain.Margin = new Padding(3, 4, 3, 4);
             tabMain.Name = "tabMain";
             tabMain.SelectedIndex = 0;
+            tabMain.Size = new Size(325, 978);
             tabMain.TabIndex = 0;
             // 
             // tabConn
             // 
             tabConn.Controls.Add(pnlConn);
+            tabConn.Location = new Point(4, 29);
+            tabConn.Margin = new Padding(3, 4, 3, 4);
             tabConn.Name = "tabConn";
-            tabConn.Padding = new System.Windows.Forms.Padding(8);
+            tabConn.Padding = new Padding(9, 11, 9, 11);
+            tabConn.Size = new Size(317, 945);
+            tabConn.TabIndex = 0;
             tabConn.Text = "🔌 Kết nối";
             tabConn.UseVisualStyleBackColor = true;
             // 
@@ -131,253 +152,332 @@ namespace RemoteViewerApp.Forms
             pnlConn.Controls.Add(btnConnect);
             pnlConn.Controls.Add(txtServerUrl);
             pnlConn.Controls.Add(lblServerUrl);
-            pnlConn.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlConn.Dock = DockStyle.Fill;
+            pnlConn.Location = new Point(9, 11);
+            pnlConn.Margin = new Padding(3, 4, 3, 4);
             pnlConn.Name = "pnlConn";
+            pnlConn.Size = new Size(299, 923);
+            pnlConn.TabIndex = 0;
             // 
-            // lblServerUrl
+            // btnRequestControl
             // 
-            lblServerUrl.Bounds = new System.Drawing.Rectangle(8, 11, 100, 18);
-            lblServerUrl.Name = "lblServerUrl";
-            lblServerUrl.Text = "Server URL:";
+            btnRequestControl.BackColor = Color.FromArgb(100, 60, 180);
+            btnRequestControl.Enabled = false;
+            btnRequestControl.FlatStyle = FlatStyle.Flat;
+            btnRequestControl.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnRequestControl.ForeColor = Color.White;
+            btnRequestControl.Location = new Point(9, 457);
+            btnRequestControl.Margin = new Padding(3, 4, 3, 4);
+            btnRequestControl.Name = "btnRequestControl";
+            btnRequestControl.Size = new Size(229, 48);
+            btnRequestControl.TabIndex = 0;
+            btnRequestControl.Text = "🖥 Yêu cầu điều khiển";
+            btnRequestControl.UseVisualStyleBackColor = false;
+            btnRequestControl.Click += BtnRequestControl_Click;
             // 
-            // txtServerUrl
+            // cmbHosts
             // 
-            txtServerUrl.Bounds = new System.Drawing.Rectangle(100, 8, 160, 24);
-            txtServerUrl.Name = "txtServerUrl";
-            // 
-            // btnConnect
-            // 
-            btnConnect.BackColor = System.Drawing.Color.FromArgb(0, 120, 212);
-            btnConnect.Bounds = new System.Drawing.Rectangle(8, 40, 120, 32);
-            btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnConnect.ForeColor = System.Drawing.Color.White;
-            btnConnect.Name = "btnConnect";
-            btnConnect.Text = "🔌 Kết nối";
-            btnConnect.UseVisualStyleBackColor = false;
-            btnConnect.Click += BtnConnect_Click;
-            // 
-            // divider1
-            // 
-            divider1.BackColor = System.Drawing.Color.FromArgb(80, 80, 80);
-            divider1.Bounds = new System.Drawing.Rectangle(0, 84, 280, 1);
-            divider1.Name = "divider1";
-            // 
-            // lblViewerId
-            // 
-            lblViewerId.Bounds = new System.Drawing.Rectangle(8, 103, 100, 18);
-            lblViewerId.Name = "lblViewerId";
-            lblViewerId.Text = "Viewer ID:";
-            // 
-            // txtViewerId
-            // 
-            txtViewerId.Bounds = new System.Drawing.Rectangle(100, 100, 160, 24);
-            txtViewerId.Name = "txtViewerId";
-            // 
-            // lblViewerName
-            // 
-            lblViewerName.Bounds = new System.Drawing.Rectangle(8, 135, 100, 18);
-            lblViewerName.Name = "lblViewerName";
-            lblViewerName.Text = "Tên Viewer:";
-            // 
-            // txtViewerName
-            // 
-            txtViewerName.Bounds = new System.Drawing.Rectangle(100, 132, 160, 24);
-            txtViewerName.Name = "txtViewerName";
-            // 
-            // lblUserId
-            // 
-            lblUserId.Bounds = new System.Drawing.Rectangle(8, 167, 100, 18);
-            lblUserId.Name = "lblUserId";
-            lblUserId.Text = "User ID:";
-            // 
-            // txtUserId
-            // 
-            txtUserId.Bounds = new System.Drawing.Rectangle(100, 164, 160, 24);
-            txtUserId.Name = "txtUserId";
-            // 
-            // btnRegister
-            // 
-            btnRegister.BackColor = System.Drawing.Color.FromArgb(16, 124, 16);
-            btnRegister.Bounds = new System.Drawing.Rectangle(8, 196, 160, 32);
-            btnRegister.Enabled = false;
-            btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnRegister.ForeColor = System.Drawing.Color.White;
-            btnRegister.Name = "btnRegister";
-            btnRegister.Text = "📋 Đăng ký Viewer";
-            btnRegister.UseVisualStyleBackColor = false;
-            btnRegister.Click += BtnRegister_Click;
-            // 
-            // divider2
-            // 
-            divider2.BackColor = System.Drawing.Color.FromArgb(80, 80, 80);
-            divider2.Bounds = new System.Drawing.Rectangle(0, 240, 280, 1);
-            divider2.Name = "divider2";
-            // 
-            // lblHostsHeader
-            // 
-            lblHostsHeader.Bounds = new System.Drawing.Rectangle(8, 253, 150, 18);
-            lblHostsHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            lblHostsHeader.Name = "lblHostsHeader";
-            lblHostsHeader.Text = "Danh sách Host:";
+            cmbHosts.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbHosts.Location = new Point(9, 415);
+            cmbHosts.Margin = new Padding(3, 4, 3, 4);
+            cmbHosts.Name = "cmbHosts";
+            cmbHosts.Size = new Size(287, 28);
+            cmbHosts.TabIndex = 1;
             // 
             // btnRefreshHosts
             // 
-            btnRefreshHosts.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
-            btnRefreshHosts.Bounds = new System.Drawing.Rectangle(8, 275, 110, 28);
+            btnRefreshHosts.BackColor = Color.FromArgb(60, 60, 60);
             btnRefreshHosts.Enabled = false;
-            btnRefreshHosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnRefreshHosts.ForeColor = System.Drawing.Color.White;
+            btnRefreshHosts.FlatStyle = FlatStyle.Flat;
+            btnRefreshHosts.ForeColor = Color.White;
+            btnRefreshHosts.Location = new Point(9, 367);
+            btnRefreshHosts.Margin = new Padding(3, 4, 3, 4);
             btnRefreshHosts.Name = "btnRefreshHosts";
+            btnRefreshHosts.Size = new Size(126, 37);
+            btnRefreshHosts.TabIndex = 2;
             btnRefreshHosts.Text = "🔄 Làm mới";
             btnRefreshHosts.UseVisualStyleBackColor = false;
             btnRefreshHosts.Click += BtnRefreshHosts_Click;
             // 
-            // cmbHosts
+            // lblHostsHeader
             // 
-            cmbHosts.Bounds = new System.Drawing.Rectangle(8, 311, 252, 24);
-            cmbHosts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cmbHosts.Name = "cmbHosts";
+            lblHostsHeader.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblHostsHeader.Location = new Point(9, 337);
+            lblHostsHeader.Name = "lblHostsHeader";
+            lblHostsHeader.Size = new Size(171, 24);
+            lblHostsHeader.TabIndex = 3;
+            lblHostsHeader.Text = "Danh sách Host:";
             // 
-            // btnRequestControl
+            // divider2
             // 
-            btnRequestControl.BackColor = System.Drawing.Color.FromArgb(100, 60, 180);
-            btnRequestControl.Bounds = new System.Drawing.Rectangle(8, 343, 200, 36);
-            btnRequestControl.Enabled = false;
-            btnRequestControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnRequestControl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            btnRequestControl.ForeColor = System.Drawing.Color.White;
-            btnRequestControl.Name = "btnRequestControl";
-            btnRequestControl.Text = "🖥 Yêu cầu điều khiển";
-            btnRequestControl.UseVisualStyleBackColor = false;
-            btnRequestControl.Click += BtnRequestControl_Click;
+            divider2.BackColor = Color.FromArgb(80, 80, 80);
+            divider2.Location = new Point(0, 320);
+            divider2.Margin = new Padding(3, 4, 3, 4);
+            divider2.Name = "divider2";
+            divider2.Size = new Size(320, 1);
+            divider2.TabIndex = 4;
+            // 
+            // btnRegister
+            // 
+            btnRegister.BackColor = Color.FromArgb(16, 124, 16);
+            btnRegister.Enabled = false;
+            btnRegister.FlatStyle = FlatStyle.Flat;
+            btnRegister.ForeColor = Color.White;
+            btnRegister.Location = new Point(9, 261);
+            btnRegister.Margin = new Padding(3, 4, 3, 4);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(183, 43);
+            btnRegister.TabIndex = 5;
+            btnRegister.Text = "📋 Đăng ký Viewer";
+            btnRegister.UseVisualStyleBackColor = false;
+            btnRegister.Click += BtnRegister_Click;
+            // 
+            // txtUserId
+            // 
+            txtUserId.Location = new Point(114, 219);
+            txtUserId.Margin = new Padding(3, 4, 3, 4);
+            txtUserId.Name = "txtUserId";
+            txtUserId.Size = new Size(182, 27);
+            txtUserId.TabIndex = 6;
+            // 
+            // lblUserId
+            // 
+            lblUserId.Location = new Point(9, 223);
+            lblUserId.Name = "lblUserId";
+            lblUserId.Size = new Size(114, 24);
+            lblUserId.TabIndex = 7;
+            lblUserId.Text = "User ID:";
+            // 
+            // txtViewerName
+            // 
+            txtViewerName.Location = new Point(114, 176);
+            txtViewerName.Margin = new Padding(3, 4, 3, 4);
+            txtViewerName.Name = "txtViewerName";
+            txtViewerName.Size = new Size(182, 27);
+            txtViewerName.TabIndex = 8;
+            // 
+            // lblViewerName
+            // 
+            lblViewerName.Location = new Point(9, 180);
+            lblViewerName.Name = "lblViewerName";
+            lblViewerName.Size = new Size(114, 24);
+            lblViewerName.TabIndex = 9;
+            lblViewerName.Text = "Tên Viewer:";
+            // 
+            // txtViewerId
+            // 
+            txtViewerId.Location = new Point(114, 133);
+            txtViewerId.Margin = new Padding(3, 4, 3, 4);
+            txtViewerId.Name = "txtViewerId";
+            txtViewerId.Size = new Size(182, 27);
+            txtViewerId.TabIndex = 10;
+            // 
+            // lblViewerId
+            // 
+            lblViewerId.Location = new Point(9, 137);
+            lblViewerId.Name = "lblViewerId";
+            lblViewerId.Size = new Size(114, 24);
+            lblViewerId.TabIndex = 11;
+            lblViewerId.Text = "Viewer ID:";
+            // 
+            // divider1
+            // 
+            divider1.BackColor = Color.FromArgb(80, 80, 80);
+            divider1.Location = new Point(0, 112);
+            divider1.Margin = new Padding(3, 4, 3, 4);
+            divider1.Name = "divider1";
+            divider1.Size = new Size(320, 1);
+            divider1.TabIndex = 12;
+            // 
+            // btnConnect
+            // 
+            btnConnect.BackColor = Color.FromArgb(0, 120, 212);
+            btnConnect.FlatStyle = FlatStyle.Flat;
+            btnConnect.ForeColor = Color.White;
+            btnConnect.Location = new Point(9, 53);
+            btnConnect.Margin = new Padding(3, 4, 3, 4);
+            btnConnect.Name = "btnConnect";
+            btnConnect.Size = new Size(137, 43);
+            btnConnect.TabIndex = 13;
+            btnConnect.Text = "🔌 Kết nối";
+            btnConnect.UseVisualStyleBackColor = false;
+            btnConnect.Click += BtnConnect_Click;
+            // 
+            // txtServerUrl
+            // 
+            txtServerUrl.Location = new Point(114, 11);
+            txtServerUrl.Margin = new Padding(3, 4, 3, 4);
+            txtServerUrl.Name = "txtServerUrl";
+            txtServerUrl.Size = new Size(182, 27);
+            txtServerUrl.TabIndex = 14;
+            // 
+            // lblServerUrl
+            // 
+            lblServerUrl.Location = new Point(9, 15);
+            lblServerUrl.Name = "lblServerUrl";
+            lblServerUrl.Size = new Size(114, 24);
+            lblServerUrl.TabIndex = 15;
+            lblServerUrl.Text = "Server URL:";
             // 
             // tabLog
             // 
             tabLog.Controls.Add(rtbLog);
             tabLog.Controls.Add(btnClearLog);
+            tabLog.Location = new Point(4, 29);
+            tabLog.Margin = new Padding(3, 4, 3, 4);
             tabLog.Name = "tabLog";
-            tabLog.Padding = new System.Windows.Forms.Padding(4);
+            tabLog.Padding = new Padding(5, 5, 5, 5);
+            tabLog.Size = new Size(202, 79);
+            tabLog.TabIndex = 1;
             tabLog.Text = "📋 Log";
             tabLog.UseVisualStyleBackColor = true;
             // 
             // rtbLog
             // 
-            rtbLog.BackColor = System.Drawing.Color.FromArgb(15, 15, 15);
-            rtbLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            rtbLog.Font = new System.Drawing.Font("Consolas", 8F);
-            rtbLog.ForeColor = System.Drawing.Color.LightGreen;
+            rtbLog.BackColor = Color.FromArgb(15, 15, 15);
+            rtbLog.Dock = DockStyle.Fill;
+            rtbLog.Font = new Font("Consolas", 8F);
+            rtbLog.ForeColor = Color.LightGreen;
+            rtbLog.Location = new Point(5, 5);
+            rtbLog.Margin = new Padding(3, 4, 3, 4);
             rtbLog.Name = "rtbLog";
             rtbLog.ReadOnly = true;
-            rtbLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            rtbLog.ScrollBars = RichTextBoxScrollBars.Vertical;
+            rtbLog.Size = new Size(192, 34);
+            rtbLog.TabIndex = 0;
             rtbLog.Text = "";
             // 
             // btnClearLog
             // 
-            btnClearLog.Dock = System.Windows.Forms.DockStyle.Bottom;
-            btnClearLog.Height = 26;
+            btnClearLog.Dock = DockStyle.Bottom;
+            btnClearLog.Location = new Point(5, 39);
+            btnClearLog.Margin = new Padding(3, 4, 3, 4);
             btnClearLog.Name = "btnClearLog";
+            btnClearLog.Size = new Size(192, 35);
+            btnClearLog.TabIndex = 1;
             btnClearLog.Text = "Xoá log";
             btnClearLog.Click += BtnClearLog_Click;
             // 
             // pnlScreen
             // 
-            pnlScreen.BackColor = System.Drawing.Color.Black;
+            pnlScreen.BackColor = Color.Black;
             pnlScreen.Controls.Add(pnlScreenTop);
             pnlScreen.Controls.Add(lblHint);
             pnlScreen.Controls.Add(screenControl);
-            pnlScreen.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlScreen.Dock = DockStyle.Fill;
+            pnlScreen.Location = new Point(0, 0);
+            pnlScreen.Margin = new Padding(3, 4, 3, 4);
             pnlScreen.Name = "pnlScreen";
+            pnlScreen.Size = new Size(1023, 1000);
+            pnlScreen.TabIndex = 0;
             // 
             // pnlScreenTop
             // 
-            pnlScreenTop.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            pnlScreenTop.BackColor = Color.FromArgb(30, 30, 30);
             pnlScreenTop.Controls.Add(lblStatus);
             pnlScreenTop.Controls.Add(lblFps);
             pnlScreenTop.Controls.Add(lblResolution);
             pnlScreenTop.Controls.Add(btnEndControl);
-            pnlScreenTop.Dock = System.Windows.Forms.DockStyle.Top;
-            pnlScreenTop.Height = 36;
+            pnlScreenTop.Dock = DockStyle.Top;
+            pnlScreenTop.Location = new Point(0, 0);
+            pnlScreenTop.Margin = new Padding(3, 4, 3, 4);
             pnlScreenTop.Name = "pnlScreenTop";
-            pnlScreenTop.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            pnlScreenTop.Padding = new Padding(9, 0, 9, 0);
+            pnlScreenTop.Size = new Size(1023, 48);
+            pnlScreenTop.TabIndex = 0;
             // 
             // lblStatus
             // 
-            lblStatus.AutoSize = false;
-            lblStatus.Dock = System.Windows.Forms.DockStyle.Left;
-            lblStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            lblStatus.ForeColor = System.Drawing.Color.Gray;
+            lblStatus.Dock = DockStyle.Left;
+            lblStatus.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblStatus.ForeColor = Color.Gray;
+            lblStatus.Location = new Point(295, 0);
             lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(229, 48);
+            lblStatus.TabIndex = 0;
             lblStatus.Text = "● Offline";
-            lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblStatus.Width = 200;
+            lblStatus.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblFps
             // 
-            lblFps.AutoSize = false;
-            lblFps.Dock = System.Windows.Forms.DockStyle.Left;
-            lblFps.Font = new System.Drawing.Font("Consolas", 8.5F);
-            lblFps.ForeColor = System.Drawing.Color.LightGray;
+            lblFps.Dock = DockStyle.Left;
+            lblFps.Font = new Font("Consolas", 8.5F);
+            lblFps.ForeColor = Color.LightGray;
+            lblFps.Location = new Point(192, 0);
             lblFps.Name = "lblFps";
+            lblFps.Size = new Size(103, 48);
+            lblFps.TabIndex = 1;
             lblFps.Text = "FPS: –";
-            lblFps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblFps.Width = 90;
+            lblFps.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblResolution
             // 
-            lblResolution.AutoSize = false;
-            lblResolution.Dock = System.Windows.Forms.DockStyle.Left;
-            lblResolution.Font = new System.Drawing.Font("Consolas", 8.5F);
-            lblResolution.ForeColor = System.Drawing.Color.LightGray;
+            lblResolution.Dock = DockStyle.Left;
+            lblResolution.Font = new Font("Consolas", 8.5F);
+            lblResolution.ForeColor = Color.LightGray;
+            lblResolution.Location = new Point(9, 0);
             lblResolution.Name = "lblResolution";
+            lblResolution.Size = new Size(183, 48);
+            lblResolution.TabIndex = 2;
             lblResolution.Text = "–";
-            lblResolution.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblResolution.Width = 160;
+            lblResolution.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnEndControl
             // 
-            btnEndControl.BackColor = System.Drawing.Color.FromArgb(200, 40, 40);
-            btnEndControl.Dock = System.Windows.Forms.DockStyle.Right;
+            btnEndControl.BackColor = Color.FromArgb(200, 40, 40);
+            btnEndControl.Dock = DockStyle.Right;
             btnEndControl.Enabled = false;
-            btnEndControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnEndControl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            btnEndControl.ForeColor = System.Drawing.Color.White;
+            btnEndControl.FlatStyle = FlatStyle.Flat;
+            btnEndControl.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnEndControl.ForeColor = Color.White;
+            btnEndControl.Location = new Point(865, 0);
+            btnEndControl.Margin = new Padding(3, 4, 3, 4);
             btnEndControl.Name = "btnEndControl";
-            btnEndControl.Text = "🛑 End Control";
+            btnEndControl.Size = new Size(149, 48);
+            btnEndControl.TabIndex = 3;
+            btnEndControl.Text = "\U0001f6d1 End Control";
             btnEndControl.UseVisualStyleBackColor = false;
-            btnEndControl.Width = 130;
             btnEndControl.Click += BtnEndControl_Click;
             // 
             // lblHint
             // 
-            lblHint.Dock = System.Windows.Forms.DockStyle.Fill;
-            lblHint.Font = new System.Drawing.Font("Segoe UI", 12F);
-            lblHint.ForeColor = System.Drawing.Color.Gray;
+            lblHint.Dock = DockStyle.Fill;
+            lblHint.Font = new Font("Segoe UI", 12F);
+            lblHint.ForeColor = Color.Gray;
+            lblHint.Location = new Point(0, 0);
             lblHint.Name = "lblHint";
+            lblHint.Size = new Size(1023, 1000);
+            lblHint.TabIndex = 1;
             lblHint.Text = "Chọn Host và nhấn \"Yêu cầu điều khiển\" để bắt đầu";
-            lblHint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblHint.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // screenControl
             // 
-            screenControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            screenControl.BackColor = Color.Black;
+            screenControl.Dock = DockStyle.Fill;
+            screenControl.Location = new Point(0, 0);
+            screenControl.Margin = new Padding(3, 4, 3, 4);
             screenControl.Name = "screenControl";
+            screenControl.Size = new Size(1023, 1000);
             screenControl.TabIndex = 0;
             // 
             // fpsTimer
             // 
+            fpsTimer.Enabled = true;
             fpsTimer.Interval = 1000;
             fpsTimer.Tick += FpsTimer_Tick;
-            fpsTimer.Start();
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1200, 750);
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1371, 1000);
             Controls.Add(splitMain);
-            Font = new System.Drawing.Font("Segoe UI", 9F);
-            MinimumSize = new System.Drawing.Size(900, 600);
+            Font = new Font("Segoe UI", 9F);
+            Margin = new Padding(3, 4, 3, 4);
+            MinimumSize = new Size(1026, 784);
             Name = "MainForm";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "RemoteViewerApp – Remote Controller Viewer";
             FormClosing += OnFormClosing;
             splitMain.Panel1.ResumeLayout(false);
@@ -392,6 +492,7 @@ namespace RemoteViewerApp.Forms
             tabLog.ResumeLayout(false);
             pnlScreen.ResumeLayout(false);
             pnlScreenTop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)screenControl).EndInit();
             ResumeLayout(false);
         }
 

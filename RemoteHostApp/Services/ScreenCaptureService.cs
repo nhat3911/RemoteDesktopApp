@@ -88,8 +88,7 @@ public class ScreenCaptureService : IDisposable
             var frame = new ScreenFrameDto
             {
                 SessionId = session.SessionId,
-
-                ImageBase64 = result.Base64,
+                ImageBase64 = CryptoHelper.Encrypt(result.Base64),
 
                 ScreenWidth = _screenWidth,
                 ScreenHeight = _screenHeight,

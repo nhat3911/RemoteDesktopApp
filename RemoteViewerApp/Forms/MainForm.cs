@@ -1,3 +1,4 @@
+using RemoteHostApp.Helpers;
 using RemoteViewerApp.Controls;
 using RemoteViewerApp.DTOs;
 using RemoteViewerApp.Helpers;
@@ -161,37 +162,27 @@ public partial class MainForm : Form
         _signalR.OnScreenFrameReceived += frame =>
             HandleScreenFrame(frame);
     }
-
-    //  Frame handling 
-
-    private void HandleScreenFrame(ScreenFrameDto frame)
+ private void HandleScreenFrame(ScreenFrameDto frame)
     {
-        if (string.IsNullOrEmpty(frame.ImageBase64))
-            return;
+        if (string.IsNullOrEmpty(frame.ImageBase64)) return;
 
         try
         {
-            var bytes = Convert.FromBase64String(frame.ImageBase64);
+            var decrypted = CryptoHelper.Decrypt(frame.ImageBase64);
+            var bytes = Convert.FromBase64String(decrypted);
 
-            using var ms = new MemoryStream(bytes);
-            using var tempImage = System.Drawing.Image.FromStream(ms);
-
-            var bitmap = new Bitmap(tempImage);
+            var ms = new MemoryStream(bytes, writable: false);
+            var bitmap = new Bitmap(ms);
 
             _frameCount++;
 
+            // UpdateFrame nhận bitmap và tự dispose bitmap cũ
             screenControl.UpdateFrame(
                 bitmap,
                 frame.ScreenWidth,
                 frame.ScreenHeight,
                 frame.MouseX,
                 frame.MouseY);
-
-            SafeInvoke(() =>
-            {
-                lblResolution.Text =
-                    $"{frame.ScreenWidth}×{frame.ScreenHeight}  [{frame.FrameWidth}×{frame.FrameHeight}]";
-            });
         }
         catch (Exception ex)
         {

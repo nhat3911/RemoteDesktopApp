@@ -39,13 +39,6 @@ public partial class LoginForm : Form
         try
         {
             var user = await _firebaseAuthService.LoginAsync(email, password);
-            if (user == null)
-            {
-                lblError.Text = "Sai email hoặc mật khẩu.";
-                txtPassword.Clear();
-                txtPassword.Focus();
-                return;
-            }
 
             AuthSession.Uid = user.localId;
             AuthSession.Email = user.email;
@@ -68,6 +61,10 @@ public partial class LoginForm : Form
 
             Hide();
             roleForm.Show();
+        }
+        catch (InvalidOperationException ex)
+        {
+            lblError.Text = ex.Message;
         }
         finally
         {
